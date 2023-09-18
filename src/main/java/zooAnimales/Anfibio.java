@@ -2,13 +2,11 @@ package zooAnimales;
 
 import java.util.ArrayList;
 
-import gestion.Zona;
-
 public class Anfibio extends Animal {  
     private static ArrayList<Anfibio> listado = new ArrayList<Anfibio>();
     private static int cantidadAnf = 0;
-    public int ranas;
-    public int salamandras;
+    public static int ranas;
+    public static int salamandras;
     private String colorPiel;
     private boolean venenoso;
 
@@ -24,8 +22,8 @@ public class Anfibio extends Animal {
         Anfibio.cantidadAnf += 1;
     }
 
-    public Anfibio(String nombre, int edad, String habitat, String genero, Zona zona, String colorPiel, boolean venenoso){
-        super(nombre, edad, habitat, genero, zona);
+    public Anfibio(String nombre, int edad, String habitat, String genero, String colorPiel, boolean venenoso){
+        super(nombre, edad, habitat, genero);
         this.colorPiel = colorPiel;
         this.venenoso = venenoso;
         Anfibio.listado.add(this);
@@ -45,7 +43,7 @@ public class Anfibio extends Animal {
         this.colorPiel = color;
     }
 
-    public boolean getVenenoso(){
+    public boolean isVenenoso(){
         return this.venenoso;
     }
 
@@ -63,15 +61,15 @@ public class Anfibio extends Animal {
         return "saltar";
     }
 
-    public Anfibio crearRana(String nombre, int edad, String habitat, String genero, Zona zona){
-        this.ranas += 1;
-        Anfibio rana = new Anfibio(nombre, edad, "selva", genero, zona, "rojo", true);
+    public static Anfibio crearRana(String nombre, int edad, String genero){
+        ranas += 1;
+        Anfibio rana = new Anfibio(nombre, edad, "selva", genero, "rojo", true);
         return rana;
     }
 
-    public Anfibio crearSalamandra(String nombre, int edad, String habitat, String genero, Zona zona){
-        this.salamandras += 1;
-        Anfibio salamandra = new Anfibio(nombre, edad, "selva", genero, zona, "negro y amarillo", false);
+    public static Anfibio crearSalamandra(String nombre, int edad, String genero){
+        salamandras += 1;
+        Anfibio salamandra = new Anfibio(nombre, edad, "selva", genero, "negro y amarillo", false);
         return salamandra;
     }
 }

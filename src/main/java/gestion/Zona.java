@@ -25,8 +25,8 @@ public class Zona {
         this.nombre = nombre;
     }
 
-    public Zoologico[] getZoo() {
-        return zoo;
+    public Zoologico getZoo() {
+        return zoo[0];
     }
 
     public void setZoo(Zoologico[] zoo) {

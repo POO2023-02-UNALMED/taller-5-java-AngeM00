@@ -2,13 +2,11 @@ package zooAnimales;
 
 import java.util.ArrayList;
 
-import gestion.Zona;
-
 public class Mamifero extends Animal {
     private static ArrayList<Mamifero> listado = new ArrayList<Mamifero>();
     private static int cantidadM = 0;
-    public int caballos;
-    public int leones;
+    public static int caballos;
+    public static int leones;
     private boolean pelaje;
     private int patas;
     
@@ -26,8 +24,8 @@ public class Mamifero extends Animal {
         Mamifero.listado.add(this);
     }
 
-    public Mamifero(String nombre, int edad, String habitat, String genero, Zona zona, boolean pelaje, int patas){
-        super(nombre, edad, habitat, genero, zona);
+    public Mamifero(String nombre, int edad, String habitat, String genero, boolean pelaje, int patas){
+        super(nombre, edad, habitat, genero);
         this.pelaje = pelaje;
         this.patas = patas;
         Mamifero.cantidadM += 1;
@@ -40,7 +38,7 @@ public class Mamifero extends Animal {
         return Mamifero.listado;
     }
 
-    public boolean getPelaje(){
+    public boolean isPelaje(){
         return this.pelaje;
     }
 
@@ -63,15 +61,15 @@ public class Mamifero extends Animal {
         return Mamifero.cantidadM;
     }
 
-    public Mamifero crearCaballo(String nombre, int edad, String genero, Zona zona){
-        this.caballos += 1;
-        Mamifero caballo = new Mamifero(nombre,edad,"pradera",genero,zona,true,4);
+    public static Mamifero crearCaballo(String nombre, int edad, String genero){
+        caballos += 1;
+        Mamifero caballo = new Mamifero(nombre,edad,"pradera",genero,true,4);
         return caballo;
     }
 
-    public Mamifero crearLeon(String nombre, int edad, String genero, Zona zona){
-        this.leones += 1;
-        Mamifero leon = new Mamifero(nombre, edad,"selva", genero, zona, true, 4);
+    public static Mamifero crearLeon(String nombre, int edad, String genero){
+        leones += 1;
+        Mamifero leon = new Mamifero(nombre, edad,"selva", genero,true, 4);
         return leon;
     }
 
